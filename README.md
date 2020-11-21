@@ -23,8 +23,13 @@ normalize: A:norm()
 
 round: A:round(tolerance)  
 this will round vector A to the nearest TOLERANCE
-ie. for a vector A=vect.new(10,14,11.25)
+ie.
+for a vector A=vect.new(10,14,11.25)
+
 A:round(1) => {10,14,11}
+
 A:round(5) => {10,15,10}
+
 A:round(10) => {10,10,10}
+
 A:round(0.1) => {10,14,11.3}
