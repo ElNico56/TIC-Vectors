@@ -58,17 +58,15 @@ vect={
   math.floor((slf.z+toler*0.5)/toler)*toler
   )
  end,
-	new=function(x, y, z)
+ new=function(x, y, z)
   return setmetatable({
   x=tonumber(x) or 0,
   y=tonumber(y) or 0,
   z=tonumber(z) or 0,
   },{
   __index=vect,
-  __add=vect.add,
-  __sub=vect.sub,
-  __mul=vect.mul,
-  __div=vect.div,
+  __add=vect.add,__sub=vect.sub,
+  __mul=vect.mul,__div=vect.div,
   __unm=vect.unm}
   )
  end,
