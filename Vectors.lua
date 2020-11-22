@@ -1,61 +1,57 @@
 vect={
- add=function(slf, o)
+ add=function(s, o)
   return vect.new(
-  slf.x+o.x,
-  slf.y+o.y,
-  slf.z+o.z
+  s.x+o.x,
+  s.y+o.y,
+  s.z+o.z
   )
  end,
- sub=function(slf, o)
+ sub=function(s, o)
   return vect.new(
-  slf.x-o.x,
-  slf.y-o.y,
-  slf.z-o.z
+  s.x-o.x,
+  s.y-o.y,
+  s.z-o.z
   )
  end,
- mul=function(slf, m)
+ mul=function(s, m)
   return vect.new(
-  slf.x*m,
-  slf.y*m,
-  slf.z*m
+  s.x*m,
+  s.y*m,
+  s.z*m
   )
  end,
- div=function(slf, m)
+ div=function(s, m)
   return vect.new(
-  slf.x/m,
-  slf.y/m,
-  slf.z/m
+  s.x/m,
+  s.y/m,
+  s.z/m
   )
  end,
- unm=function(slf)
+ unm=function(s)
+  return vect.new(-s.x,-s.y,-s.z)
+ end,
+ dot=function(s, o)
+  return s.x*o.x+s.y*o.y+s.z*o.z
+ end,
+ cross=function(s, o)
   return vect.new(
-  -slf.x,
-  -slf.y,
-  -slf.z
+  s.y*o.z-s.z*o.y,
+  s.z*o.x-s.x*o.z,
+  s.x*o.y-s.y*o.x
   )
  end,
- dot=function(slf, o)
-  return slf.x*o.x+slf.y*o.y+slf.z*o.z
+ len=function(s)
+  return math.sqrt(s.x*s.x+s.y*s.y+s.z*s.z)
  end,
- cross=function(slf, o)
+ norm=function(s)
+  return s:mul(1/s:len())
+ end,
+ round=function(s, t)
+  t=t or 1
   return vect.new(
-  slf.y*o.z-slf.z*o.y,
-  slf.z*o.x-slf.x*o.z,
-  slf.x*o.y-slf.y*o.x
-  )
- end,
- len=function(slf)
-  return math.sqrt(slf.x*slf.x+slf.y*slf.y+slf.z*slf.z)
- end,
- norm=function(slf)
-  return slf:mul(1/slf:len())
- end,
- round=function(slf, toler)
-  toler=toler or 1.0
-  return vect.new(
-  math.floor((slf.x+toler*0.5)/toler)*toler,
-  math.floor((slf.y+toler*0.5)/toler)*toler,
-  math.floor((slf.z+toler*0.5)/toler)*toler
+  ((s.x+t*0.5)//t)*t,
+  ((s.y+t*0.5)//t)*t,
+  ((s.z+t*0.5)//t)*t
   )
  end,
  new=function(x, y, z)
