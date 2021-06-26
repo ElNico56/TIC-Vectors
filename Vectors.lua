@@ -13,18 +13,18 @@ vect={
   s.z-o.z
   )
  end,
- mul=function(s, m)
+ mul=function(s, n)
   return vect.new(
-  s.x*m,
-  s.y*m,
-  s.z*m
+  s.x*n,
+  s.y*n,
+  s.z*n
   )
  end,
- div=function(s, m)
+ div=function(s, n)
   return vect.new(
-  s.x/m,
-  s.y/m,
-  s.z/m
+  s.x/n,
+  s.y/n,
+  s.z/n
   )
  end,
  unm=function(s)
@@ -54,6 +54,9 @@ vect={
   ((s.z+t*0.5)//t)*t
   )
  end,
+ string=function(s)
+  return s.x..", "..s.y..", "..s.z
+ end,
  new=function(x, y, z)
   return setmetatable({
   x=tonumber(x) or 0,
@@ -63,7 +66,7 @@ vect={
   __index=vect,
   __add=vect.add,__sub=vect.sub,
   __mul=vect.mul,__div=vect.div,
-  __unm=vect.unm}
+  __unm=vect.unm,__tostring=vect.string}
   )
  end,
 }
