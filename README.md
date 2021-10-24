@@ -1,6 +1,9 @@
 # TIC-Vectors
 Vector math for TIC-80
+
 all functions return vectors, they do not change the vector that calls them
+
+---
 
 Create new vector: A = vect.new(X,Y,Z)
 
