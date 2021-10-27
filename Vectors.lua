@@ -75,9 +75,12 @@ vect={
 			z=tonumber(z) or 0,
 		},{
 			__index=vect,
-			__add=vect.add,__sub=vect.sub,
-			__mul=vect.mul,__div=vect.div,
-			__unm=vect.unm,__tostring=vect.string}
+			__add=vect.add,
+			__sub=vect.sub,
+			__mul=vect.mul,
+			__div=vect.div,
+			__unm=vect.unm,
+			__tostring=vect.string}
 		)
 	end,
 }
