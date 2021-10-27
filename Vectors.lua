@@ -68,11 +68,11 @@ vect={
 		return s.x..", "..s.y..", "..s.z
 	end,
 
-	new=function(x, y, z)
+	new=function(X, Y, Z)
 		return setmetatable({
-			x=tonumber(x) or 0,
-			y=tonumber(y) or 0,
-			z=tonumber(z) or 0,
+			x=tonumber(X) or 0,
+			y=tonumber(Y) or 0,
+			z=tonumber(Z) or 0,
 		},{
 			__index=vect,
 			__add=vect.add,
