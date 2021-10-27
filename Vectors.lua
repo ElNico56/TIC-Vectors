@@ -80,8 +80,8 @@ vect={
 			__mul=vect.mul,
 			__div=vect.div,
 			__unm=vect.unm,
-			__tostring=vect.str}
-		)
+			__tostring=vect.str
+		})
 	end,
 }
 return vect
