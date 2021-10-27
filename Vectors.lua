@@ -48,7 +48,7 @@ vect={
 	end,
 
 	len=function(s)
-		return math.sqrt(s.x*s.x+s.y*s.y+s.z*s.z)
+		return math.sqrt(s.x^2+s.y^2+s.z^2)
 	end,
 
 	norm=function(s)
