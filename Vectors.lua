@@ -64,7 +64,7 @@ vect={
 		)
 	end,
 
-	string=function(s)
+	str=function(s)
 		return s.x..", "..s.y..", "..s.z
 	end,
 
@@ -80,7 +80,7 @@ vect={
 			__mul=vect.mul,
 			__div=vect.div,
 			__unm=vect.unm,
-			__tostring=vect.string}
+			__tostring=vect.str}
 		)
 	end,
 }
