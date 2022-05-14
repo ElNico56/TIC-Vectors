@@ -49,9 +49,9 @@ vect={
 	round=function(s, t)
 		t=t or 1
 		return vect.new(
-			((s.x+t*0.5)//t)*t,
-			((s.y+t*0.5)//t)*t,
-			((s.z+t*0.5)//t)*t
+			math.floor((s.x+t*0.5)/t)*t,
+			math.floor((s.y+t*0.5)/t)*t,
+			math.floor((s.z+t*0.5)/t)*t
 		)
 	end,
 	str=function(s)
