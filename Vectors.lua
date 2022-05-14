@@ -55,7 +55,7 @@ vect={
 		)
 	end,
 	str=function(s)
-		return s.x..", "..s.y..", "..s.z
+		return '('..s.x..', '..s.y..', '..s.z..')'
 	end,
 	new=function(X, Y, Z)
 		return setmetatable({
