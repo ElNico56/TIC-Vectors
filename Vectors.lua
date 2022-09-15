@@ -1,33 +1,33 @@
-vect={
-	add=function(s, o)
+local vectmt={
+	__add=function(s, o)
 		return vect.new(
 			s.x+o.x,
 			s.y+o.y,
 			s.z+o.z
 		)
 	end,
-	sub=function(s, o)
+	__sub=function(s, o)
 		return vect.new(
 			s.x-o.x,
 			s.y-o.y,
 			s.z-o.z
 		)
 	end,
-	mul=function(s, n)
+	__mul=function(s, n)
 		return vect.new(
 			s.x*n,
 			s.y*n,
 			s.z*n
 		)
 	end,
-	div=function(s, n)
+	__div=function(s, n)
 		return vect.new(
 			s.x/n,
 			s.y/n,
 			s.z/n
 		)
 	end,
-	unm=function(s)
+	__unm=function(s)
 		return vect.new(-s.x,-s.y,-s.z)
 	end,
 	dot=function(s, o)
@@ -54,23 +54,19 @@ vect={
 			math.floor((s.z+t*0.5)/t)*t
 		)
 	end,
-	str=function(s)
+	__tostring=function(s)
 		return '('..s.x..', '..s.y..', '..s.z..')'
 	end,
-	new=function(X, Y, Z)
-		return setmetatable({
-			x=tonumber(X) or 0,
-			y=tonumber(Y) or 0,
-			z=tonumber(Z) or 0,
-		},{
-			__index=vect,
-			__add=vect.add,
-			__sub=vect.sub,
-			__mul=vect.mul,
-			__div=vect.div,
-			__unm=vect.unm,
-			__tostring=vect.str
-		})
-	end,
 }
+vectmt.__index=vectmt
+
+local function vect(X, Y, Z)
+	return setmetatable({
+		x=tonumber(X) or 0,
+		y=tonumber(Y) or 0,
+		z=tonumber(Z) or 0,
+	},vectmt)
+
+end
+
 return vect
