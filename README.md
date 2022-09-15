@@ -5,7 +5,7 @@ all functions return vectors, they do not change the vector that calls them
 
 ---
 
-To import: vect = require'vectors'
+To import: vect = require'Vectors'
 
 Create new vector: A = vect(X,Y,Z)
 
