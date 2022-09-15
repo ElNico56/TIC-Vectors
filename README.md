@@ -9,7 +9,7 @@ To import: vect = require'vectors'
 
 Create new vector: A = vect(X,Y,Z)
 
-Add: C = A + B
+Add: C = A + B\n
 Substract: C = A - B
 Multiply: C = A * n
 Divide: C = A / n
