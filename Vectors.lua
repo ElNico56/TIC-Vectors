@@ -1,40 +1,40 @@
 local vectmt={
 	__add=function(s, o)
-		return vect.new(
+		return _vect_(
 			s.x+o.x,
 			s.y+o.y,
 			s.z+o.z
 		)
 	end,
 	__sub=function(s, o)
-		return vect.new(
+		return _vect_(
 			s.x-o.x,
 			s.y-o.y,
 			s.z-o.z
 		)
 	end,
 	__mul=function(s, n)
-		return vect.new(
+		return _vect_(
 			s.x*n,
 			s.y*n,
 			s.z*n
 		)
 	end,
 	__div=function(s, n)
-		return vect.new(
+		return _vect_(
 			s.x/n,
 			s.y/n,
 			s.z/n
 		)
 	end,
 	__unm=function(s)
-		return vect.new(-s.x,-s.y,-s.z)
+		return _vect_(-s.x,-s.y,-s.z)
 	end,
 	dot=function(s, o)
 		return s.x*o.x+s.y*o.y+s.z*o.z
 	end,
 	cross=function(s, o)
-		return vect.new(
+		return _vect_(
 			s.y*o.z-s.z*o.y,
 			s.z*o.x-s.x*o.z,
 			s.x*o.y-s.y*o.x
@@ -48,7 +48,7 @@ local vectmt={
 	end,
 	round=function(s, t)
 		t=t or 1
-		return vect.new(
+		return _vect_(
 			math.floor((s.x+t*0.5)/t)*t,
 			math.floor((s.y+t*0.5)/t)*t,
 			math.floor((s.z+t*0.5)/t)*t
@@ -58,15 +58,14 @@ local vectmt={
 		return '('..s.x..', '..s.y..', '..s.z..')'
 	end,
 }
-vectmt.__index=vectmt
+vectmt.__index = vectmt
 
-local function vect(X, Y, Z)
+function _vect_(X, Y, Z)
 	return setmetatable({
 		x=tonumber(X) or 0,
 		y=tonumber(Y) or 0,
 		z=tonumber(Z) or 0,
 	},vectmt)
-
 end
 
 return vect
