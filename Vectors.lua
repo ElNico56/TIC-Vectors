@@ -16,6 +16,7 @@ vectmt.__add=function(s, o)
 		s.z+o.z
 	)
 end
+
 vectmt.__sub=function(s, o)
 	return _vect_(
 		s.x-o.x,
@@ -23,6 +24,7 @@ vectmt.__sub=function(s, o)
 		s.z-o.z
 	)
 end
+
 vectmt.__mul=function(s, n)
 	return _vect_(
 		s.x*n,
@@ -30,6 +32,7 @@ vectmt.__mul=function(s, n)
 		s.z*n
 	)
 end
+
 vectmt.__div=function(s, n)
 	return _vect_(
 		s.x/n,
@@ -37,12 +40,15 @@ vectmt.__div=function(s, n)
 		s.z/n
 	)
 end
+
 vectmt.__unm=function(s)
 	return _vect_(-s.x,-s.y,-s.z)
 end
+
 vectmt.dot=function(s, o)
 	return s.x*o.x+s.y*o.y+s.z*o.z
 end
+
 vectmt.cross=function(s, o)
 	return _vect_(
 		s.y*o.z-s.z*o.y,
@@ -50,12 +56,15 @@ vectmt.cross=function(s, o)
 		s.x*o.y-s.y*o.x
 	)
 end
+
 vectmt.len=function(s)
 	return math.sqrt(s.x^2+s.y^2+s.z^2)
 end
+
 vectmt.norm=function(s)
 	return s:__mul(1/s:len())
 end
+
 vectmt.round=function(s, t)
 	t=t or 1
 	return _vect_(
@@ -64,6 +73,7 @@ vectmt.round=function(s, t)
 		math.floor((s.z+t*0.5)/t)*t
 	)
 end
+
 vectmt.__tostring=function(s)
 	return '('..s.x..', '..s.y..', '..s.z..')'
 end
