@@ -5,9 +5,9 @@ all functions return vectors, they do not change the vector that calls them
 
 ---
 
-To import: vect = require'Vectors'
+To import: vec3 = require'Vectors'
 
-Create new vector: A = vect(X,Y,Z)
+Create new vector: A = vec3(X,Y,Z)
 
 - Add: C = A + B
 - Substract: C = A - B
