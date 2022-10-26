@@ -5,9 +5,9 @@ all functions return vectors, they do not change the vector that calls them
 
 ---
 
-To import: vec3 = require'Vectors'
+To import: local Vec3d = require'Vectors'
 
-Create new vector: A = vec3(X,Y,Z)
+Create new vector: local A = Vec3d(X,Y,Z)
 
 - Add: C = A + B
 - Substract: C = A - B
@@ -26,7 +26,7 @@ this will round vector A to the nearest TOLERANCE
 
 ie.
 
-for a vector A=vect( 10, 14, 11.25 )
+for a vector: local A = Vec3d( 10, 14, 11.25 )
 
 - A:round(1) => { 10, 14, 11 }
 - A:round(5) => { 10, 15, 10 }
