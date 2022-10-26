@@ -36,7 +36,8 @@ vectmt.round = function(s, t)
 	return vect(
 		math.floor((s.x + t * 0.5) / t) * t,
 		math.floor((s.y + t * 0.5) / t) * t,
-		math.floor((s.z + t * 0.5) / t) * t)
+		math.floor((s.z + t * 0.5) / t) * t
+	)
 end
 
 return vect
