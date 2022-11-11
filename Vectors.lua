@@ -9,34 +9,60 @@ local function vect(x, y, z)
 	}, vectmt)
 end
 
-vectmt.__add = function(s, o) return vect(s.x+o.x, s.y+o.y, s.z+o.z) end
-
-vectmt.__sub = function(s, o) return vect(s.x-o.x, s.y-o.y, s.z-o.z) end
-
-vectmt.__mul = function(s, n) return vect(s.x*n, s.y*n, s.z*n) end
-
-vectmt.__div = function(s, n) return vect(s.x/n, s.y/n, s.z/n) end
-
-vectmt.__unm = function(s) return vect(-s.x, -s.y, -s.z) end
-
-vectmt.__tostring = function(s) return '('..s.x..', '..s.y..', '..s.z..')' end
-
-vectmt.dot = function(s, o) return s.x*o.x + s.y*o.y + s.z*o.z end
-
-vectmt.cross = function(s, o)
-	return vect(s.y*o.z - s.z*o.y, s.z*o.x - s.x*o.z, s.x*o.y - s.y*o.x)
+function vectmt.__add(self, other)
+	return vect(self.x + other.x, self.y + other.y, self.z + other.z)
 end
 
-vectmt.len = function(s) return math.sqrt(s.x * s.x + s.y * s.y + s.z * s.z) end
+function vectmt.__sub(self, other)
+	return vect(self.x - other.x, self.y - other.y, self.z - other.z)
+end
 
-vectmt.norm = function(s) return s:__div(s:len()) end
+function vectmt.__mul(self, num)
+	return vect(self.x*num, self.y*num, self.z*num)
+end
 
-vectmt.round = function(s, t)
+function vectmt.__div(self, num)
+	return vect(self.x/num, self.y/num, self.z/num)
+end
+
+function vectmt.__unm(self)
+	return vect(-self.x, -self.y, -self.z)
+end
+
+function vectmt.__tostring(self)
+	return ('(%i, %i, %i)'):format(x, y, z)
+end
+
+function vectmt.dot(self, other)
+	return self.x*other.x + self.y*other.y + self.z*other.z
+end
+
+function vectmt.cross(self, other)
+	return vect(
+		self.y*other.z - self.z*other.y,
+		self.z*other.x - self.x*other.z,
+		self.x*other.y - self.y*other.x
+	)
+end
+
+function vectmt.len(self)
+	return math.sqrt(self.x*self.x + self.y*self.y + self.z*self.z)
+end
+
+function vectmt.len2(self)
+	return self.x*self.x + self.y*self.y + self.z*self.z
+end
+
+function vectmt.norm(self)
+	return self:__div(self:len())
+end
+
+function vectmt.round(self, t)
 	t = t or 1
 	return vect(
-		math.floor((s.x + t * 0.5) / t) * t,
-		math.floor((s.y + t * 0.5) / t) * t,
-		math.floor((s.z + t * 0.5) / t) * t
+		math.floor((self.x + t * 0.5) / t) * t,
+		math.floor((self.y + t * 0.5) / t) * t,
+		math.floor((self.z + t * 0.5) / t) * t
 	)
 end
 
