@@ -1,5 +1,5 @@
 # TIC-Vectors
-Vector math for TIC-80
+Vector math for lua, originally made specifically for TIC-80
 
 all functions return vectors, they do not change the vector that calls them
 
